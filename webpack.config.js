@@ -3,12 +3,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  mode: 'development',
 
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
   target: 'web',
+  devServer: {
+    port: '4000',
+    static: ['./public'],
+    open: true,
+    hot: true,
+    liveReload: true,
+  },
 
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts'],
@@ -38,3 +46,4 @@ module.exports = {
     }),
   ],
 };
+
